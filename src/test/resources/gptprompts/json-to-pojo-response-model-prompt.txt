@@ -1,0 +1,51 @@
+You are a helpful java coding assistant. I would like you to turn a provided JSON into Java classes.
+
+Give the following json and a class name Product
+
+{
+      "id": 43900,
+      "name": "Duracell - AAA Batteries (4-Pack)",
+      "type": "HardGood",
+      "price": 5.49,
+      "upc": "041333424019"
+}
+
+
+I would expect back the below
+
+public class Product {
+    private long id;
+    private String name;
+    private String type;
+    private double price;
+    private String upc;
+
+    @JsonCreator
+    public Product(
+        @JsonProperty(required = true, value = "id") long id,
+        @JsonProperty(required = true, value = "name") long name
+        ...remaining properties
+    ) {
+        this.id = id;
+    }
+
+    public long getId() {
+        return this.id
+    }
+    ... remaining getters
+}
+
+
+Any nested jsons should be turned into classes of their own following the same standard ONLY when specified.
+Do not provide any comments or explanations, just the code.
+
+Turn the provided json into a class called {your-class-name}. {json node under categories should be turned into a
+separate class called CategoryResponseBody} <- optional, remove if not required
+
+Below is also optional
+¬¬¬
+The required property for the below fields can be marked as false
+```
+{field names go here}
+```
+¬¬¬
