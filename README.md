@@ -1,25 +1,31 @@
-# Serenity JUnit Starter project
+# Expedited Training - API Testing
 
-Get started quickly with Serenity BDD and JUnit 5 with this simple starter project. 
+Demo API tests on the <a href = "https://github.com/BestBuy/api-playground">Best Buy API Playground</a> API for 
+the API Testing Expedited Training Module. The Best Buy API Playground can very easily be set up locally
+using Docker.
 
-## Get the code
+## Requirements
 
-Click on the [Use This Template button](https://github.com/serenity-bdd/serenity-junit-starter/generate) to create a new project in your own Github account. 
+- Best Buy API Playground set up and running
+- Java 11 or Higher
 
-Or simply [download a zip](https://github.com/serenity-bdd/serenity-junit-starter/archive/master.zip) file.
+If using a Java version different from 17, update lines 147 and 148 in the pom.xml to the version in use.
 
-## Running the tests under Maven
+## Running the Tests
 
-The template project comes with both Maven and Gradle build scripts. To run the tests with Maven, open a command window and run:
+- To run all the tests run the command `mvnw clean verify` <br>
+- To run a subset of tests use the command `mvnw clean verify -Dgroups=<existing-tag>`
 
-  ./mvnw clean verify
+## Tag Guide
 
-## Use Gradle
+| Tag                         | Description                                                                       |
+|-----------------------------|-----------------------------------------------------------------------------------|
+| products-endpoint-tests     | Executes all tests related to the products endpoint                               |
+| get-product-tests           | Executes all tests related to the GET by id method of the products endpoint       |
+| get-product-test-<test-id>  | Executes a specific test related to the GET by id method of the products endpoint |
+| post-product-tests          | Executes all tests related to the POST method of the products endpoint            |
+| post-product-test-<test-id> | Executes a specific test related to the POST method of the products endpoint      |
 
-For GRADLE, pen a command window and run:
+## Viewing the Serenity reports
 
-  ./gradlew test 
-
-## Viewing the reports
-
-Both of the commands provided above will produce a Serenity test report in the `target/site/serenity` directory. Go take a look!
+Run the `mvnw clean verify` will produce a Serenity test report in the `target/site/serenity` directory.
